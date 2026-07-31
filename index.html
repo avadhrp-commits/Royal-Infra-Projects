@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Infra Projects — Integrated EPC Solutions for Electrical Utilities &amp; Infrastructure</title>
+<meta name="description" content="Royal Infra Projects is an Ahmedabad-based Electrical Infrastructure &amp; EPC execution company delivering HT/LT networks, OH-to-UG conversion, underground cabling, substation commissioning and utility infrastructure for government utilities and highway projects.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- ================= ICON SPRITE ================= -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-tower" viewBox="0 0 24 24"><path d="M12 2 5 9h14L12 2Z M9 9 4 22 M15 9l5 13 M7 13h10 M6.2 17h11.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="icon-cable" viewBox="0 0 24 24"><path d="M3 8c3 0 3 4 6 4s3-4 6-4 3 4 6 4M3 16c3 0 3 4 6 4s3-4 6-4 3 4 6 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="icon-drill" viewBox="0 0 24 24"><path d="M3 12h9l3-3 6 3-6 3-3-3H3z M15 9V6h3v3 M15 15v3h3v-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="icon-panel" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7h8M8 11h8M8 15h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="icon-link" viewBox="0 0 24 24"><path d="M9 15 15 9 M8 16 5.5 18.5a3.5 3.5 0 0 1-5-5L3 11 M16 8l2.5-2.5a3.5 3.5 0 0 1 5 5L21 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-ground" viewBox="0 0 24 24"><path d="M12 3v10M6 17h12M8 20h8M10 23h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="icon-gauge" viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0 M12 15l4-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="15" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="icon-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 3.5h6a1 1 0 0 1 1 1V6H8V4.5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 13 2 2 4-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M5 7h14M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-9 0 1 13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 11v6M14 11v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="icon-hammer" viewBox="0 0 24 24"><path d="m14.5 6.5 3 3L8 19H5v-3l9.5-9.5Z M13 8l3-3 3 3-3 3 M17 4l3 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m8.5 12 2.3 2.3L15.5 9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-cost" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.8 0-3 1-3 2.2 0 3 6 1.3 6 4.3 0 1.3-1.4 2.3-3.2 2.3-1.5 0-2.7-.6-3.2-1.7M12 6.5v1M12 16.5v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="icon-system" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 6h8M6 8v8M18 8v8M8 18h8" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 13.5-1.3 6.5 4.8-2.6 4.8 2.6-1.3-6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.4 4.5-2.3 1.6a12 12 0 0 0 6.2 6.2l1.6-2.3L21 14.4v3a2 2 0 0 1-2.2 2C10.6 18.7 5.3 13.4 4.6 5.2A2 2 0 0 1 6.6 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m4 6.5 8 6.2 8-6.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8.2a3 3 0 0 1 0 5.9M20 20c0-2.6-1.7-4.8-4-5.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m15 9-4.5 1.5L9 15l4.5-1.5L15 9Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M9 3H4v5M15 3h5v5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="site-header">
+  <div class="header-bg" aria-hidden="true"></div>
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="Royal Infra Projects — home">
+      <img src="assets/img/logo-horizontal.png" alt="Royal Infra Projects" class="brand-logo">
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#partners">Partners</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+917874940140" class="header-phone">
+        <svg class="icon" width="16" height="16"><use href="#icon-phone"/></svg>
+        <span>+91 78749 40140</span>
+      </a>
+      <a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+      <svg class="icon" width="24" height="24"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <svg class="hero-grid" viewBox="0 0 1200 800" preserveAspectRatio="none"><defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/></pattern></defs><rect width="1200" height="800" fill="url(#grid)"/></svg>
+    <svg class="hero-lines" viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <path d="M-50 620 C 250 520, 450 700, 750 560 S 1150 480, 1300 560" fill="none" stroke="rgba(190,134,23,0.55)" stroke-width="2"/>
+      <path d="M-50 700 C 300 640, 500 780, 800 650 S 1150 600, 1300 660" fill="none" stroke="rgba(190,134,23,0.25)" stroke-width="2"/>
+      <g fill="#D9A542">
+        <circle cx="180" cy="551" r="4"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="620" cy="600" r="4"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite"/></circle>
+        <circle cx="980" cy="510" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.8s" repeatCount="indefinite"/></circle>
+      </g>
+    </svg>
+    <svg class="hero-skyline" viewBox="0 0 520 460" aria-hidden="true">
+      <defs>
+        <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#D9A542" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#D9A542" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="towerStroke" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#EBC97C"/>
+          <stop offset="100%" stop-color="#8FA3C4" stop-opacity="0.35"/>
+        </linearGradient>
+      </defs>
+
+      <circle cx="380" cy="150" r="150" fill="url(#heroGlow)"/>
+
+      <!-- ascending growth trend line -->
+      <path d="M15 430 C 140 385, 175 300, 255 258 S 385 130, 495 55" fill="none" stroke="rgba(217,165,66,.5)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <path d="M470 42 L495 55 L484 82" fill="none" stroke="rgba(217,165,66,.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- back tower -->
+      <g opacity="0.45" stroke="url(#towerStroke)" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M120 260 70 340h100L120 260Z"/>
+        <path d="M85 340 55 440M155 340l30 100M100 340 82 440M140 340l18 100"/>
+        <path d="M70 370h100M62 400h116"/>
+      </g>
+
+      <!-- mid tower -->
+      <g opacity="0.72" stroke="url(#towerStroke)" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M260 200 195 300h130L260 200Z"/>
+        <path d="M215 300 175 440M305 300l40 140M232 300 208 440M288 300l24 140"/>
+        <path d="M195 335h130M185 370h150M175 405h170"/>
+      </g>
+
+      <!-- front tower, largest -->
+      <g stroke="url(#towerStroke)" stroke-width="2.2" fill="none" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M400 120 320 250h160L400 120Z"/>
+        <path d="M345 250 290 440M455 250l55 190M368 250 336 440M432 250l32 190"/>
+        <path d="M320 300h160M305 350h190M290 400h220"/>
+      </g>
+
+      <!-- power lines between cross-arms, with travelling energy pulses -->
+      <path d="M185 300 Q 230 330 260 260" fill="none" stroke="rgba(217,165,66,.5)" stroke-width="1.6"/>
+      <path d="M325 260 Q 360 220 400 170" fill="none" stroke="rgba(217,165,66,.6)" stroke-width="1.6"/>
+      <g fill="#EBC97C">
+        <circle cx="220" cy="315" r="3.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.6s" repeatCount="indefinite"/></circle>
+        <circle cx="360" cy="205" r="3.5"><animate attributeName="opacity" values="1;0.2;1" dur="2.1s" repeatCount="indefinite"/></circle>
+      </g>
+
+      <!-- scattered circuit nodes -->
+      <g fill="rgba(255,255,255,.55)">
+        <circle cx="440" cy="90" r="2.5"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="3.4s" repeatCount="indefinite"/></circle>
+        <circle cx="70" cy="230" r="2.5"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.8s" repeatCount="indefinite"/></circle>
+        <circle cx="500" cy="300" r="2.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.9s" repeatCount="indefinite"/></circle>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span>Ahmedabad, Gujarat · Electrical Infrastructure &amp; EPC</p>
+    <h1 class="hero-title">Integrated EPC Solutions for<br>Electrical Utilities &amp; Infrastructure</h1>
+    <p class="hero-sub">Royal Infra Projects delivers reliable, cost-efficient and technically compliant electrical infrastructure for government utilities, highways and associated infrastructure projects across Gujarat.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold">Request a Consultation <svg class="icon" width="16" height="16"><use href="#icon-arrow"/></svg></a>
+      <a href="#projects" class="btn btn-ghost-light">View Our Projects</a>
+    </div>
+    <p class="hero-philosophy">"Engineer Better. Execute Smarter. Build for the Nation."</p>
+  </div>
+  <div class="hero-stats wrap">
+    <div class="hstat"><span class="hstat-num" data-count="300" data-suffix="+">300+</span><span class="hstat-label">KM HT Cable<br>Consumption FY 25–26</span></div>
+    <div class="hstat"><span class="hstat-num" data-count="1000" data-suffix="+">1,000+</span><span class="hstat-label">RMU Foundations<br>Executed</span></div>
+    <div class="hstat"><span class="hstat-num" data-count="3">3</span><span class="hstat-label">City Areas Made<br>Overhead-Wire Free</span></div>
+    <div class="hstat"><span class="hstat-num" data-count="2024" data-nocommas="1">2024</span><span class="hstat-label">Founded &amp;<br>Building Since</span></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="eyebrow">About Us</p>
+      <h2 class="section-title">From a civil contracting enterprise<br>to a structured EPC organisation</h2>
+      <p class="lead">Founded in April 2024 on a construction site in Bavla, Royal Infra Projects grew from a small civil contracting crew into a certified electrical infrastructure execution company — one project, one client relationship at a time.</p>
+      <p>Today we design, build and commission 11&nbsp;kV HT/LT networks, overhead-to-underground conversions, underground cable systems and substation infrastructure across Gujarat — backed by ISO&nbsp;9001:2015, ISO&nbsp;14001:2015 and ISO&nbsp;45001:2018 certification for quality, environmental and occupational health &amp; safety management. Every project runs on the same discipline: eco-conscious execution, rigorous documentation, and a crew that treats a handover date like a promise.</p>
+    </div>
+    <div class="about-side reveal">
+      <div class="about-card">
+        <svg class="icon icon-lg" width="32" height="32"><use href="#icon-compass"/></svg>
+        <h3>Our Mission</h3>
+        <p>Infrastructure for a nation in motion — wider networks, safer systems, and reliable power reaching every home and business they touch.</p>
+      </div>
+      <div class="about-card about-card-dark">
+        <svg class="icon icon-lg" width="32" height="32"><use href="#icon-award"/></svg>
+        <h3>Our Vision</h3>
+        <p>"Every cable we lay closes a little more distance between darkness and light. We build on the ground, for the nation — to a standard that doesn't stop at any border."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CORE STRENGTH ================= -->
+<section class="section section-alt" id="core-strength">
+  <div class="wrap">
+    <p class="eyebrow">Our Core Strength</p>
+    <h2 class="section-title reveal">Execution capability at scale</h2>
+
+    <svg class="strength-connector reveal" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M100 20 H900" fill="none" stroke="rgba(190,134,23,.4)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <circle cx="167" cy="20" r="4" fill="var(--gold-500)"/>
+      <circle cx="500" cy="20" r="4" fill="var(--gold-500)"/>
+      <circle cx="833" cy="20" r="4" fill="var(--gold-500)"/>
+    </svg>
+    <div class="strength-grid strength-grid-primary">
+      <div class="strength-card strength-big reveal">
+        <svg class="strength-watermark" width="140" height="140" aria-hidden="true"><use href="#icon-cable"/></svg>
+        <span class="strength-num">300+ <small>KM</small></span>
+        <h3>HT Cable Consumption</h3>
+        <p>More than 300&nbsp;km of HT cable consumption during FY&nbsp;2025–26, reflecting our capability to manage large-scale underground electrical infrastructure and multi-front execution.</p>
+        <svg class="strength-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="spark1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D9A542" stop-opacity=".35"/><stop offset="100%" stop-color="#D9A542" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0 28 L20 24 L40 26 L60 18 L80 20 L100 8 V32 H0 Z" fill="url(#spark1)"/>
+          <path d="M0 28 L20 24 L40 26 L60 18 L80 20 L100 8" fill="none" stroke="#D9A542" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="100" cy="8" r="3" fill="#EBC97C"><animate attributeName="opacity" values="1;0.3;1" dur="2.2s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="strength-card strength-big reveal">
+        <svg class="strength-watermark" width="140" height="140" aria-hidden="true"><use href="#icon-tower"/></svg>
+        <span class="strength-num">1,000+</span>
+        <h3>RMU Foundations</h3>
+        <p>Successfully executed 1,000+ RMU foundations in and around Ahmedabad, demonstrating strong civil-electrical interface management and repetitive high-volume execution capability.</p>
+        <svg class="strength-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="spark2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D9A542" stop-opacity=".35"/><stop offset="100%" stop-color="#D9A542" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0 26 L20 20 L40 22 L60 12 L80 14 L100 4 V32 H0 Z" fill="url(#spark2)"/>
+          <path d="M0 26 L20 20 L40 22 L60 12 L80 14 L100 4" fill="none" stroke="#D9A542" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="100" cy="4" r="3" fill="#EBC97C"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.6s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="strength-card strength-big reveal">
+        <svg class="strength-watermark" width="140" height="140" aria-hidden="true"><use href="#icon-pin"/></svg>
+        <span class="strength-num">3</span>
+        <h3>City Areas Made Overhead-Wire Free</h3>
+        <p>Contributed to the transformation of three major city areas in Ahmedabad through large-scale overhead-to-underground electrical infrastructure conversion.</p>
+        <svg class="strength-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="spark3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D9A542" stop-opacity=".35"/><stop offset="100%" stop-color="#D9A542" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0 24 L20 22 L40 16 L60 18 L80 10 L100 6 V32 H0 Z" fill="url(#spark3)"/>
+          <path d="M0 24 L20 22 L40 16 L60 18 L80 10 L100 6" fill="none" stroke="#D9A542" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="100" cy="6" r="3" fill="#EBC97C"><animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+    </div>
+
+    <div class="strength-grid strength-grid-secondary">
+      <div class="strength-card reveal">
+        <span class="strength-icon-badge"><svg class="icon" width="24" height="24"><use href="#icon-clipboard"/></svg></span>
+        <h3>End-to-End Project Management</h3>
+        <p>Survey → planning → procurement → logistics → inventory → execution → testing → documentation → handover — with complete project visibility and controlled execution.</p>
+      </div>
+      <div class="strength-card reveal">
+        <span class="strength-icon-badge"><svg class="icon" width="24" height="24"><use href="#icon-shield"/></svg></span>
+        <h3>Safe &amp; Systematic Operations</h3>
+        <p>Our operations are structured around quality control, safety, documentation, resource planning, inventory control and measurable project performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What We Do</p>
+    <h2 class="section-title reveal">Electrical Infrastructure &amp; EPC Services</h2>
+    <p class="section-sub reveal">Certified under ISO 9001:2015, ISO 14001:2015 &amp; ISO 45001:2018 — fourteen service lines covering everything from network design to grid efficiency, delivered under one execution standard.</p>
+
+    <div class="service-group">
+      <p class="service-group-label reveal">Network &amp; Conversion</p>
+      <div class="services-grid">
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-bolt"/></svg></span><h3>11 kV HT/LT Electrical Networks</h3><p>Design, erection and commissioning of 11&nbsp;kV HT and LT distribution networks built for reliable day-to-day operation.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-cable"/></svg></span><h3>Overhead-to-Underground Conversion</h3><p>Large-scale OH-to-UG conversion for safer, decongested urban distribution networks.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-cable"/></svg></span><h3>Underground Cable Laying</h3><p>HT/LT underground cable system installation across urban and highway corridors.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-tower"/></svg></span><h3>RMU / DTR Infrastructure</h3><p>Foundation, installation and commissioning of Ring Main Units and Distribution Transformers.</p></div>
+      </div>
+    </div>
+
+    <div class="service-group">
+      <p class="service-group-label reveal">Installation &amp; Commissioning</p>
+      <div class="services-grid">
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-drill"/></svg></span><h3>HDD &amp; Road Crossings</h3><p>Horizontal directional drilling and road-crossing works for uninterrupted underground routing.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-panel"/></svg></span><h3>Substation Commissioning</h3><p>End-to-end substation commissioning, including switchgear and panel installation.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-link"/></svg></span><h3>Cable Jointing &amp; Termination</h3><p>HT/LT cable jointing and termination executed to technical compliance standards.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-ground"/></svg></span><h3>Earthing Systems</h3><p>Earthing infrastructure for substations, RMU/DTR installations and distribution networks.</p></div>
+      </div>
+    </div>
+
+    <div class="service-group">
+      <p class="service-group-label reveal">Testing, Maintenance &amp; Efficiency</p>
+      <div class="services-grid">
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-gauge"/></svg></span><h3>Electrical Testing &amp; Diagnostics</h3><p>Testing and diagnostics to verify installation integrity and operational readiness.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-clipboard"/></svg></span><h3>Annual Maintenance Services</h3><p>Structured AMC programmes that keep utility and infrastructure electrical assets running reliably.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-sun"/></svg></span><h3>Solar Grid Integration</h3><p>Integration of solar generation assets into existing grid infrastructure.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-gauge"/></svg></span><h3>Power Factor Automation</h3><p>Automated power factor correction to improve network efficiency and compliance.</p></div>
+      </div>
+    </div>
+
+    <div class="service-group">
+      <p class="service-group-label reveal">Utility &amp; Civil Support</p>
+      <div class="services-grid services-grid-2">
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-trash"/></svg></span><h3>Utility Shifting &amp; Dismantling</h3><p>Utility relocation and dismantling of existing overhead networks for highway and infrastructure projects.</p></div>
+        <div class="service-card reveal"><span class="service-icon"><svg class="icon" width="24" height="24"><use href="#icon-hammer"/></svg></span><h3>Associated Civil Works</h3><p>Civil-electrical interface works supporting foundation, trenching and restoration activities.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOURNEY / MILESTONES ================= -->
+<section class="section section-dark" id="journey">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-light">Our Journey</p>
+    <h2 class="section-title section-title-light reveal">From ground-level execution<br>to structured EPC delivery</h2>
+
+    <div class="growth-path reveal">
+      <svg class="growth-path-line" viewBox="0 0 800 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M60 30 H740" fill="none" stroke="rgba(217,165,66,.45)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <path d="M700 20 L740 30 L700 40" fill="none" stroke="rgba(217,165,66,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="growth-node growth-node-start">
+        <span class="growth-node-icon"><svg class="icon" width="24" height="24"><use href="#icon-hammer"/></svg></span>
+        <span class="growth-node-year">2024</span>
+        <h3>Local Enterprise</h3>
+        <p>Royal Infra Projects began as a small civil contracting outfit — hands-on execution, direct management involvement, and hard-won lessons in labour, materials, cost control and client coordination.</p>
+      </div>
+      <div class="growth-node growth-node-end">
+        <span class="growth-node-icon"><svg class="icon" width="24" height="24"><use href="#icon-tower"/></svg></span>
+        <span class="growth-node-tag">The direction we're building toward</span>
+        <h3>Structured EPC Execution</h3>
+        <p>A systematic, quality-driven electrical infrastructure execution organisation — built project by project, not claimed overnight.</p>
+      </div>
+    </div>
+
+    <h3 class="milestones-heading reveal" id="projects">Major Project Milestones</h3>
+    <div class="milestones-grid">
+      <div class="milestone-card reveal">
+        <span class="milestone-icon"><svg class="icon icon-gold" width="22" height="22"><use href="#icon-bolt"/></svg></span>
+        <span class="milestone-tag">OH-to-UG Conversion · Bopal</span>
+        <h4>RDSS OH-to-UG Conversion — UGVCL, Bopal</h4>
+        <p class="milestone-partner">Executed under L&amp;T Infrastructure</p>
+        <p>Our first project executed under a principal contractor structure. Scope covered 11&nbsp;kV infrastructure, OH-to-UG conversion, RMU/DTR foundations, electrical erection, cable infrastructure, underground works, and termination.</p>
+      </div>
+      <div class="milestone-card reveal">
+        <span class="milestone-icon"><svg class="icon icon-gold" width="22" height="22"><use href="#icon-cable"/></svg></span>
+        <span class="milestone-tag">OH-to-UG Conversion · Sanand</span>
+        <h4>Robust OH-to-UG Conversion — UGVCL, Sanand</h4>
+        <p class="milestone-partner">Executed under Rajesh Power Services Ltd.</p>
+        <p>Scope covered HDD, underground HT/LT cable laying, RMU/DTR foundations, electrical erection, earthing, HT/LT termination, dismantling of the existing overhead network, and associated material, inventory and billing management.</p>
+      </div>
+      <div class="milestone-card reveal">
+        <span class="milestone-icon"><svg class="icon icon-gold" width="22" height="22"><use href="#icon-drill"/></svg></span>
+        <span class="milestone-tag">Highway Utility Shifting</span>
+        <h4>GSRDC Electrical Utility Shifting</h4>
+        <p class="milestone-partner">Multiple channel partners</p>
+        <p>Utility shifting work tied to highway infrastructure — 11&nbsp;kV HT and LT networks, transformer shifting, underground cable networks, HDD/road crossings, electrical structures, dismantling and restoration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAPABILITY AT A GLANCE ================= -->
+<section class="section section-alt capability-strip" id="capability">
+  <div class="wrap">
+    <div class="capability-row">
+      <div class="capability-item reveal">
+        <svg class="icon icon-gold" width="26" height="26"><use href="#icon-panel"/></svg>
+        <span class="capability-num">14</span>
+        <span class="capability-label">Service Lines</span>
+      </div>
+      <div class="capability-item reveal">
+        <svg class="icon icon-gold" width="26" height="26"><use href="#icon-users"/></svg>
+        <span class="capability-num">8</span>
+        <span class="capability-label">Partner Organisations</span>
+      </div>
+      <div class="capability-item reveal">
+        <svg class="icon icon-gold" width="26" height="26"><use href="#icon-award"/></svg>
+        <span class="capability-num">3</span>
+        <span class="capability-label">ISO Certifications</span>
+      </div>
+      <div class="capability-item reveal">
+        <svg class="icon icon-gold" width="26" height="26"><use href="#icon-pin"/></svg>
+        <span class="capability-num-text">Ahmedabad HQ</span>
+        <span class="capability-label">Execution Across Gujarat</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPERATING PHILOSOPHY (hero band) ================= -->
+<section class="section philosophy-hero" id="philosophy">
+  <div class="philosophy-bg" aria-hidden="true">
+    <svg class="philosophy-grid" viewBox="0 0 1200 500" preserveAspectRatio="none">
+      <defs><pattern id="philo-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs>
+      <rect width="1200" height="500" fill="url(#philo-grid)"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <p class="eyebrow eyebrow-light reveal">Our Operating Philosophy</p>
+    <h2 class="philosophy-title reveal">Four pillars. <span>One standard</span>, on every project.</h2>
+    <p class="section-sub section-sub-light philosophy-lead reveal">Quality, cost, safety and system aren't separate checklists — they're the same discipline applied at every stage of execution, from survey to handover.</p>
+    <div class="pillars-row">
+      <div class="pillar-item reveal">
+        <span class="pillar-index">01</span>
+        <span class="pillar-icon-ring"><svg class="icon icon-gold" width="24" height="24"><use href="#icon-award"/></svg></span>
+        <h3>Quality</h3>
+        <p>Delivering technically compliant and durable infrastructure.</p>
+      </div>
+      <div class="pillar-item reveal">
+        <span class="pillar-index">02</span>
+        <span class="pillar-icon-ring"><svg class="icon icon-gold" width="24" height="24"><use href="#icon-cost"/></svg></span>
+        <h3>Cost</h3>
+        <p>Optimising procurement, resources and execution to deliver competitive project economics.</p>
+      </div>
+      <div class="pillar-item reveal">
+        <span class="pillar-index">03</span>
+        <span class="pillar-icon-ring"><svg class="icon icon-gold" width="24" height="24"><use href="#icon-shield"/></svg></span>
+        <h3>Safety</h3>
+        <p>Maintaining safe working practices across electrical, civil, underground and site operations.</p>
+      </div>
+      <div class="pillar-item reveal">
+        <span class="pillar-index">04</span>
+        <span class="pillar-icon-ring"><svg class="icon icon-gold" width="24" height="24"><use href="#icon-system"/></svg></span>
+        <h3>System</h3>
+        <p>Building structured processes for planning, execution, inventory, billing, documentation and project controls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS & SAFETY ================= -->
+<section class="section section-alt" id="certifications">
+  <div class="wrap">
+    <p class="eyebrow">Certifications &amp; Safety</p>
+    <h2 class="section-title reveal">Quality, safety and environmental standards</h2>
+    <p class="section-sub reveal">Our execution framework is built around quality, safety, systems, cost control, technical compliance, transparency, accountability and environmental responsibility — from eco-conscious execution to a minimised construction footprint.</p>
+    <div class="cert-grid-plain reveal">
+      <button type="button" class="cert-card-plain" data-cert-image="assets/img/cert-iso-9001.png" data-cert-title="ISO 9001:2015 — Quality Management System — Certificate No. 6158C108">
+        <span class="cert-frame"><img src="assets/img/cert-iso-9001.png" alt="ISO 9001:2015 Quality Management System certificate issued to Royal Infra Projects" loading="lazy"></span>
+      </button>
+      <button type="button" class="cert-card-plain" data-cert-image="assets/img/cert-iso-14001.png" data-cert-title="ISO 14001:2015 — Environmental Management System — Certificate No. 7D8A5651">
+        <span class="cert-frame"><img src="assets/img/cert-iso-14001.png" alt="ISO 14001:2015 Environmental Management System certificate issued to Royal Infra Projects" loading="lazy"></span>
+      </button>
+      <button type="button" class="cert-card-plain" data-cert-image="assets/img/cert-iso-45001.png" data-cert-title="ISO 45001:2018 — Occupational Health &amp; Safety Management — Certificate No. 33984E45">
+        <span class="cert-frame"><img src="assets/img/cert-iso-45001.png" alt="ISO 45001:2018 Occupational Health and Safety Management certificate issued to Royal Infra Projects" loading="lazy"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEADERSHIP ================= -->
+<section class="section" id="leadership">
+  <div class="wrap">
+    <p class="eyebrow">Leadership</p>
+    <h2 class="section-title reveal">The people building Royal Infra Projects</h2>
+
+    <div class="leader-feature reveal">
+      <div class="leader-photo-frame">
+        <span class="leader-photo-placeholder">RM</span>
+      </div>
+      <div class="leader-feature-content">
+        <p class="leader-role">Chairman &amp; Managing Head</p>
+        <h3>Rajesh M. Patel</h3>
+        <p>A hands-on leader who stays close to the ground even as the company has grown, pairing commercial pragmatism with an insistence on doing the work right the first time. Founded the company in 2024 and has driven its transformation from a small civil contracting outfit into a structured electrical infrastructure execution organisation — disciplined, systematic, and built to scale.</p>
+        <blockquote class="leader-quote">
+          <p>"I don't build a reputation on promises — I build it on what's still standing years later. Quality, service and execution aren't values I preach; they're the standard I hold myself to on every site, every time."</p>
+          <cite>— Chairman &amp; Managing Head</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="leaders-grid leaders-grid-secondary">
+      <div class="leader-card reveal">
+        <div class="leader-photo-frame leader-photo-frame-sm">
+          <span class="leader-photo-placeholder">AP</span>
+        </div>
+        <h3>Avadh R. Patel</h3>
+        <p class="leader-role">Director – Commercial &amp; Finance</p>
+        <p class="leader-edu">B.E. Mechanical Engineering · M.Tech Nuclear Science &amp; Technology</p>
+        <p>Avadh brings financial discipline and commercial rigour to every project Royal Infra Projects takes on. He built the company's commercial and administrative systems from the ground up and continues to strengthen them as the organisation scales, keeping cost control, documentation and client relationships held to the same standard of accountability the business is built on.</p>
+      </div>
+      <div class="leader-card reveal">
+        <div class="leader-photo-frame leader-photo-frame-sm">
+          <span class="leader-photo-placeholder">HP</span>
+        </div>
+        <h3>Harshal D. Patel</h3>
+        <p class="leader-role">Operations Manager</p>
+        <p class="leader-edu">B.E. Mechanical Engineering</p>
+        <p>Harshal is the reason execution stays on track once work begins. Present on site and coordinating workforce and contractors day to day, he resolves problems before they become delays — turning project plans into infrastructure that gets delivered on schedule, safely and to standard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS / PROJECT ECOSYSTEM ================= -->
+<section class="section section-alt" id="partners">
+  <div class="wrap">
+    <p class="eyebrow">Clients, Principal Contractors &amp; Project Partners</p>
+    <h2 class="section-title reveal">Our project ecosystem</h2>
+    <p class="section-sub reveal">Royal Infra Projects has developed its execution capabilities through associations and project ecosystems involving principal/channel partners and government infrastructure organisations.</p>
+
+    <div class="partners-cols">
+      <div class="reveal">
+        <h3 class="partners-col-title">Principal / Channel Partners</h3>
+        <ul class="partner-list">
+          <li>L&amp;T Infrastructure</li>
+          <li>Rajesh Power Services Ltd.</li>
+          <li>Vasudev Builders</li>
+          <li>Devarshi Engineering Pvt. Ltd.</li>
+          <li>Kalathia Engineering &amp; Construction Ltd. (KECL)</li>
+          <li>Harsh Electrics</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3 class="partners-col-title">Government / Infrastructure Organisations</h3>
+        <ul class="partner-list">
+          <li>UGVCL — Uttar Gujarat Vij Company Limited</li>
+          <li>GSRDC — Gujarat State Road Development Corporation</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="partners-col-title contacts-heading reveal">Project Leadership We've Worked Alongside</h3>
+    <div class="contacts-grid">
+      <div class="contact-person-card reveal"><h4>Ganesh Rao</h4><p>Project Manager, RDSS — L&amp;T, Ahmedabad Region</p></div>
+      <div class="contact-person-card reveal"><h4>A. K. Parmar</h4><p>Executive Engineer, Sanand Division — UGVCL</p></div>
+      <div class="contact-person-card reveal"><h4>Nimesh Soni</h4><p>Project Manager, Sanand ROBUST — Rajesh Power Services Ltd.</p></div>
+      <div class="contact-person-card reveal"><h4>Mahesh Patel</h4><p>Devarshi Engineering Pvt. Ltd. — Mehsana, Chhatral, Kalol, Ognaj, Chandkheda</p></div>
+      <div class="contact-person-card reveal"><h4>Alkesh Patel</h4><p>Shri Ganesh Enterprise — Subcontracting &amp; Partnering</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAREERS ================= -->
+<section class="section careers" id="careers">
+  <div class="wrap careers-inner reveal">
+    <svg class="icon icon-gold icon-xl" width="40" height="40"><use href="#icon-users"/></svg>
+    <h2 class="section-title">We're growing — build with us</h2>
+    <p class="section-sub">Royal Infra Projects is scaling its execution teams across electrical, civil and project-management functions. If you want to be part of a structured, fast-growing infrastructure organisation in Ahmedabad, we'd like to hear from you.</p>
+    <a href="mailto:info@royalinfraprojects.com?subject=Career%20Enquiry" class="btn btn-primary">Send Us Your Profile <svg class="icon" width="16" height="16"><use href="#icon-arrow"/></svg></a>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section section-dark" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-light">Get In Touch</p>
+      <h2 class="section-title section-title-light">Let's talk about your project</h2>
+      <p class="section-sub section-sub-light">For commercial enquiries and to talk with management, reach out directly.</p>
+
+      <div class="contact-item">
+        <svg class="icon icon-gold" width="22" height="22"><use href="#icon-phone"/></svg>
+        <div><span class="contact-label">Avadh Patel — Commercial &amp; Management</span><a href="tel:+917874940140">+91 78749 40140</a></div>
+      </div>
+      <div class="contact-item">
+        <svg class="icon icon-gold" width="22" height="22"><use href="#icon-mail"/></svg>
+        <div><span class="contact-label">Email</span><a href="mailto:info@royalinfraprojects.com">info@royalinfraprojects.com</a></div>
+      </div>
+      <div class="contact-item">
+        <svg class="icon icon-gold" width="22" height="22"><use href="#icon-pin"/></svg>
+        <div><span class="contact-label">Registered Office</span><span class="contact-text">Block No. 2089/2, Sanand Nalsarovar Bypass Cross Road, Sanand, Ahmedabad — 382110, Gujarat, India</span></div>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://maps.google.com/maps?q=22.9823977,72.3636838&z=16&output=embed"
+          width="100%" height="240" style="border:0" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Royal Infra Projects — Sanand Store location map">
+        </iframe>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=22.9823977,72.3636838" target="_blank" rel="noopener" class="contact-map-link">
+          Get Directions <svg class="icon" width="14" height="14"><use href="#icon-arrow"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" id="contact-form">
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required autocomplete="name">
+      </div>
+      <div class="form-row">
+        <label for="cf-org">Organisation</label>
+        <input type="text" id="cf-org" name="org" autocomplete="organization">
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-row">
+        <label for="cf-phone">Phone</label>
+        <input type="tel" id="cf-phone" name="phone" autocomplete="tel">
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Project Details</label>
+        <textarea id="cf-message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold btn-block">Send Enquiry <svg class="icon" width="16" height="16"><use href="#icon-arrow"/></svg></button>
+      <p class="form-note" id="form-note">This opens your email app with the details pre-filled, addressed to info@royalinfraprojects.com.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="footer-circuit" aria-hidden="true">
+    <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="circuit" width="130" height="130" patternUnits="userSpaceOnUse">
+          <path d="M0 65 H45 V25 H95 M95 25 V105 H130" fill="none" stroke="rgba(217,165,66,.14)" stroke-width="1.5"/>
+          <circle cx="45" cy="65" r="3" fill="rgba(217,165,66,.2)"/>
+          <circle cx="95" cy="25" r="3" fill="rgba(217,165,66,.2)"/>
+          <circle cx="95" cy="105" r="3" fill="rgba(217,165,66,.2)"/>
+        </pattern>
+      </defs>
+      <rect width="800" height="400" fill="url(#circuit)"/>
+    </svg>
+  </div>
+
+  <div class="footer-cta-strip">
+    <div class="wrap footer-cta-inner">
+      <div>
+        <h3>Building something serious? So are we.</h3>
+        <p>If you're an engineer, contractor or partner who takes execution as seriously as we do, we want to hear from you.</p>
+      </div>
+      <a href="#contact" class="btn btn-gold">Start a Conversation <svg class="icon" width="16" height="16"><use href="#icon-arrow"/></svg></a>
+    </div>
+  </div>
+
+  <div class="wrap footer-cols">
+    <div class="footer-col footer-col-brand">
+      <span class="footer-logo-badge"><img src="assets/img/logo-horizontal.png" alt="Royal Infra Projects" class="footer-logo"></span>
+      <p>From Grid to Ground - Complete EPC Solutions.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#partners">Partners</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <a href="#services">11 kV HT/LT Networks</a>
+      <a href="#services">OH-to-UG Conversion</a>
+      <a href="#services">Underground Cable Laying</a>
+      <a href="#services">Substation Commissioning</a>
+      <a href="#services">Electrical Testing &amp; Diagnostics</a>
+      <a href="#services">Solar Grid Integration</a>
+    </div>
+    <div class="footer-col">
+      <h4>ISO Certifications</h4>
+      <span>ISO 9001:2015</span>
+      <span>ISO 14001:2015</span>
+      <span>ISO 45001:2018</span>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <span class="footer-address">Royal Infra Projects<br>Block No. 2089/2, Sanand Nalsarovar Bypass Cross Road,<br>Sanand, Ahmedabad — 382110,<br>Gujarat, India</span>
+      <a href="tel:+917874940140">+91 78749 40140</a>
+      <a href="mailto:info@royalinfraprojects.com">info@royalinfraprojects.com</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span id="year"></span> Royal Infra Projects. All rights reserved.</span>
+    <span>From Foundations to Infrastructure. From Execution to Excellence.</span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg class="icon" width="20" height="20"><use href="#icon-arrow" style="transform:rotate(-90deg)"/></svg>
+</button>
+
+<div class="lightbox" id="cert-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Certificate preview">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close certificate preview">
+    <svg class="icon" width="22" height="22"><use href="#icon-close"/></svg>
+  </button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
