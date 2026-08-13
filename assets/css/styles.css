@@ -1150,11 +1150,12 @@ h1,h2,h3,h4{
 .print-contact{ display:none; }
 
 @media print{
+  /* Zero page margin so colour bands run edge to edge; each section supplies
+     its own inset instead, which keeps the sheet fully occupied. */
   @page{
     size: A4;
-    margin: 14mm 12mm 16mm;
+    margin: 0;
   }
-  /* Cover is full-bleed, so it carries no page margin of its own. */
   @page cover{ margin: 0; }
 
   *, *::before, *::after{
@@ -1226,23 +1227,27 @@ h1,h2,h3,h4{
   }
 
   /* --- section rhythm --- */
-  .section, .section-tight{ padding-block: 6mm !important; }
+  /* Page margin is 0, so the inset lives here and colour reaches the paper edge. */
+  .section, .section-tight{ padding: 9mm 13mm !important; }
   .container, .container-narrow{ max-width:none !important; padding-inline:0 !important; }
 
   /* Dark bands keep their colour; the cover already set colour-adjust. */
-  .on-navy{ background: #0E2148 !important; color:#fff !important; padding: 7mm !important; border-radius: 2mm; }
+  .on-navy{ background: #0E2148 !important; color:#fff !important; border-radius: 0; }
   .on-navy h2, .on-navy h3, .on-navy h4, .on-navy strong{ color:#fff !important; }
-  .on-cloud{ background:#F5F7FA !important; padding: 7mm !important; border-radius: 2mm; }
+  .on-cloud{ background:#F5F7FA !important; border-radius: 0; }
 
   .page-hero{
     background: #0E2148 !important; color:#fff !important;
-    padding: 10mm !important; border-radius: 2mm; break-after: avoid;
+    padding: 13mm !important; border-radius: 0; break-after: avoid;
   }
   .page-hero h1{ color:#fff !important; font-size: 20pt; }
   .page-hero .lede{ color: rgba(255,255,255,0.82) !important; font-size: 10pt; }
 
   h1{ font-size: 20pt; } h2{ font-size: 15pt; } h3{ font-size: 11.5pt; } h4{ font-size: 10pt; }
   h1, h2, h3, h4{ break-after: avoid; }
+  /* Keeps an eyebrow+heading block from being stranded at the foot of a page
+     with its content starting on the next one. */
+  .section-head{ break-inside: avoid; break-after: avoid; }
   p, li{ orphans: 3; widows: 3; }
 
   /* --- component break control --- */
@@ -1279,7 +1284,13 @@ h1,h2,h3,h4{
   .leader-body p:last-child{ color: rgba(255,255,255,0.8) !important; font-size: 8.6pt; }
 
   .card, .cert-plate, .mini-service, .tick-list li{ break-inside: avoid; }
-  .cert-plate img{ max-height: 60mm; width:auto; margin-inline:auto; }
+
+  /* The three ISO certificates must stay on one row, side by side. */
+  .grid-3{ grid-template-columns: repeat(3, 1fr) !important; }
+  .grid-4{ grid-template-columns: repeat(4, 1fr) !important; }
+  .grid-2{ grid-template-columns: repeat(2, 1fr) !important; }
+  .cert-plate{ padding: 3mm !important; }
+  .cert-plate img{ width:100%; height:auto; max-height:none; display:block; }
   .grid{ gap: 4mm !important; }
   figure, img{ break-inside: avoid; }
   img{ max-width:100% !important; }
@@ -1287,6 +1298,13 @@ h1,h2,h3,h4{
   /* Major sections start clean rather than dangling two lines onto a page. */
   .pf-projects{ break-before: auto; }
   section.on-navy, section.on-cloud{ break-inside: auto; }
+
+  /* Keep compact banded sections whole. Splitting them strands the heading on
+     one page and drops the content onto the next without its background. */
+  section:has(.cert-plate),
+  section:has(.stat-band),
+  section:has(.pf-flow),
+  section:has(.print-contact){ break-inside: avoid; }
 
   .screen-only{ display:none !important; }
 
