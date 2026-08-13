@@ -463,7 +463,9 @@
   </div>
 </div>
 
-<div class="lightbox"><span class="lightbox-close" aria-hidden="true">&#10005;</span><img src="" alt=""></div>
+<!-- No src attribute: src="" resolves to the page URL, so the browser would
+     fetch this HTML document as an image and log a failed request on load. -->
+<div class="lightbox"><span class="lightbox-close" aria-hidden="true">&#10005;</span><img alt=""></div>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script src="assets/js/main.js"></script>
 </body>
