@@ -1141,13 +1141,182 @@ h1,h2,h3,h4{
 .mini-service h4{ font-size:0.92rem; color:var(--navy); font-weight:600; min-width:0; overflow-wrap:break-word; }
 .print-bar{ display:flex; justify-content:flex-end; padding:0.9rem var(--gutter); background:var(--cloud); border-bottom:1px solid var(--line); }
 
+/* ==========================================================================
+   Print — turns the company profile into a branded, shareable A4 catalogue.
+   Screen-only chrome is dropped, brand colour is forced to render, and every
+   component gets explicit break rules so nothing splits across a page.
+   ========================================================================== */
+.print-cover{ display:none; }
+.print-contact{ display:none; }
+
 @media print{
-  .site-header, .site-footer, .whatsapp-float, .chat-launcher, .chat-panel, .lightbox, .print-bar{ display:none !important; }
-  body{ color:#000; }
-  .page-hero{ background:var(--navy) !important; padding-block:2.5rem; }
-  .section{ padding-block:1.4rem; }
-  section{ break-inside:avoid; }
-  .btn{ display:none; }
-  a[href]{ color:inherit; text-decoration:none; }
-  .hero-trace, .marquee-track{ animation:none !important; }
+  @page{
+    size: A4;
+    margin: 14mm 12mm 16mm;
+  }
+  /* Cover is full-bleed, so it carries no page margin of its own. */
+  @page cover{ margin: 0; }
+
+  *, *::before, *::after{
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body{ background:#fff !important; }
+  body{ font-size: 9.6pt; line-height: 1.5; color: #12151C; }
+
+  /* --- drop screen-only chrome --- */
+  .site-header, .site-footer, .whatsapp-float, .chat-launcher, .chat-panel,
+  .lightbox, .print-bar, .scroll-cue, .btn, .breadcrumb, .marquee{
+    display: none !important;
+  }
+  .hero-trace{ display:none !important; }
+  *{ animation: none !important; transition: none !important; }
+
+  /* Reveal-on-scroll must never leave printed content invisible. */
+  .reveal, .reveal-stagger > *{ opacity:1 !important; transform:none !important; }
+
+  a[href]{ color: inherit; text-decoration: none; }
+
+  /* --- cover page --- */
+  .print-cover{
+    display: flex !important;
+    flex-direction: column;
+    page: cover;
+    break-after: page;
+    height: 297mm;
+    width: 210mm;
+    padding: 16mm 15mm 12mm;
+    background: linear-gradient(160deg, #0E2148 0%, #081530 100%) !important;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  .pc-top{ display:flex; align-items:center; justify-content:space-between; }
+  .pc-logo{ height: 20mm; width:auto; }
+  .pc-eyebrow{
+    font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.16em;
+    text-transform: uppercase; color: #E4B94F;
+  }
+  .pc-mid{ margin-top: 16mm; }
+  .pc-title{
+    font-family: var(--font-display); font-size: 27pt; line-height: 1.12;
+    color:#fff; font-weight: 600; letter-spacing:-0.01em;
+  }
+  .pc-title em{ color:#E4B94F; font-style: italic; font-weight: 400; }
+  .pc-tag{
+    margin-top: 6mm; font-size: 10.5pt; line-height:1.5;
+    color: rgba(255,255,255,0.82); max-width: 62%;
+  }
+  .pc-hero{
+    margin-top: auto; border-radius: 3mm; overflow:hidden; height: 78mm;
+  }
+  .pc-hero img{ width:100%; height:100%; object-fit:cover; }
+  .pc-stats{
+    display:grid; grid-template-columns: repeat(4,1fr); gap: 4mm;
+    margin-top: 8mm; padding-top: 6mm;
+    border-top: 0.4mm solid rgba(255,255,255,0.28);
+  }
+  .pc-stats strong{
+    display:block; font-family: var(--font-display); font-size: 15pt; color:#E4B94F;
+  }
+  .pc-stats span{ font-size: 7.6pt; color: rgba(255,255,255,0.7); line-height:1.35; }
+  .pc-foot{
+    margin-top: 8mm; display:flex; justify-content:space-between;
+    font-size: 7.8pt; color: rgba(255,255,255,0.62);
+  }
+
+  /* --- section rhythm --- */
+  .section, .section-tight{ padding-block: 6mm !important; }
+  .container, .container-narrow{ max-width:none !important; padding-inline:0 !important; }
+
+  /* Dark bands keep their colour; the cover already set colour-adjust. */
+  .on-navy{ background: #0E2148 !important; color:#fff !important; padding: 7mm !important; border-radius: 2mm; }
+  .on-navy h2, .on-navy h3, .on-navy h4, .on-navy strong{ color:#fff !important; }
+  .on-cloud{ background:#F5F7FA !important; padding: 7mm !important; border-radius: 2mm; }
+
+  .page-hero{
+    background: #0E2148 !important; color:#fff !important;
+    padding: 10mm !important; border-radius: 2mm; break-after: avoid;
+  }
+  .page-hero h1{ color:#fff !important; font-size: 20pt; }
+  .page-hero .lede{ color: rgba(255,255,255,0.82) !important; font-size: 10pt; }
+
+  h1{ font-size: 20pt; } h2{ font-size: 15pt; } h3{ font-size: 11.5pt; } h4{ font-size: 10pt; }
+  h1, h2, h3, h4{ break-after: avoid; }
+  p, li{ orphans: 3; widows: 3; }
+
+  /* --- component break control --- */
+  .stat-band{ break-inside: avoid; }
+  .stat-tile{ background:#0E2148 !important; padding: 5mm !important; }
+  .stat-num{ font-size: 15pt !important; color:#E4B94F !important; }
+  .stat-tile p{ color: rgba(255,255,255,0.75) !important; font-size: 7.8pt !important; }
+
+  /* Stack media over body and let the cell collapse to the image, otherwise the
+     grid column stretches and leaves a grey band under the photo. */
+  .pf-project{
+    break-inside: avoid; page-break-inside: avoid;
+    border:0.3mm solid #DCE1E8; margin-bottom: 5mm;
+    grid-template-columns: 1fr !important;
+  }
+  /* The <=820px breakpoint puts aspect-ratio:16/9 on .pf-media; in print that
+     makes the box taller than the image and leaves a dead band underneath. */
+  .pf-media{
+    min-height:0; height:auto; background:none !important;
+    aspect-ratio: auto !important;
+    display:block;
+  }
+  .pf-media img{ height: 50mm; width:100%; object-fit:cover; display:block; }
+  .pf-body{ padding: 5mm !important; }
+  .pf-scope li{ font-size: 7.2pt; padding: 0.9mm 2mm; }
+  .pf-flow{ break-inside: avoid; }
+  .pf-step{ padding: 4mm !important; }
+  .pf-step p{ font-size: 7.8pt; }
+
+  .leader-grid{ max-width:none; gap: 8mm; }
+  .leader-card{ break-inside: avoid; page-break-inside: avoid; }
+  .leader-photo{ width: 34mm; height: 34mm; margin-bottom: -17mm; }
+  .leader-body{ background:#0E2148 !important; padding: calc(17mm + 5mm) 6mm 6mm !important; }
+  .leader-body p:last-child{ color: rgba(255,255,255,0.8) !important; font-size: 8.6pt; }
+
+  .card, .cert-plate, .mini-service, .tick-list li{ break-inside: avoid; }
+  .cert-plate img{ max-height: 60mm; width:auto; margin-inline:auto; }
+  .grid{ gap: 4mm !important; }
+  figure, img{ break-inside: avoid; }
+  img{ max-width:100% !important; }
+
+  /* Major sections start clean rather than dangling two lines onto a page. */
+  .pf-projects{ break-before: auto; }
+  section.on-navy, section.on-cloud{ break-inside: auto; }
+
+  .screen-only{ display:none !important; }
+
+  /* --- print back cover --- */
+  .print-contact{
+    display:block !important;
+    break-inside: avoid;
+    margin-top: 8mm;
+    padding: 9mm;
+    background:#081530 !important;
+    border-radius: 2mm;
+    text-align:center;
+    color:#fff;
+  }
+  .pcx-logo{ height: 16mm; width:auto; margin: 0 auto 6mm; }
+  .pcx-grid{
+    display:grid; grid-template-columns: repeat(3,1fr); gap: 5mm;
+    padding: 5mm 0; margin-bottom: 4mm;
+    border-top: 0.3mm solid rgba(255,255,255,0.22);
+    border-bottom: 0.3mm solid rgba(255,255,255,0.22);
+  }
+  .pcx-grid span{
+    display:block; font-family: var(--font-mono); font-size: 7pt;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color:#E4B94F; margin-bottom: 1.5mm;
+  }
+  .pcx-grid strong{ font-size: 9.5pt; color:#fff; font-weight:500; }
+  .pcx-addr{ font-size: 8.6pt; color: rgba(255,255,255,0.8); line-height:1.6; }
+  .pcx-iso{
+    margin-top: 4mm; font-family: var(--font-mono); font-size: 7pt;
+    letter-spacing: 0.08em; color: rgba(255,255,255,0.55);
+  }
 }
