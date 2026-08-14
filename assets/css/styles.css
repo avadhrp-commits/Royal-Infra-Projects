@@ -1283,7 +1283,20 @@ h1,h2,h3,h4{
   .leader-body{ background:#0E2148 !important; padding: calc(17mm + 5mm) 6mm 6mm !important; }
   .leader-body p:last-child{ color: rgba(255,255,255,0.8) !important; font-size: 8.6pt; }
 
+  /* Only small units get break protection. Applying it to whole sections is what
+     pushed half-empty pages, so sections themselves are allowed to flow. */
   .card, .cert-plate, .mini-service, .tick-list li{ break-inside: avoid; }
+  .section, .section-tight, .grid, .stat-band, .pf-flow, .leader-grid{
+    break-inside: auto !important;
+  }
+  .section-head{ break-after: avoid; }
+  /* Forcing .eyebrow to block to make break-after apply reflowed the labels and
+     cost three extra pages, so it keeps its inline-flex box. Protecting the
+     heading that follows is enough to stop an orphaned label in practice. */
+  .eyebrow{ break-after: avoid; }
+  h2 + p, h2 + .mini-grid, h2 + .grid{ break-before: avoid; }
+  /* Let the capability tiles flow rather than jump wholesale to the next page. */
+  .mini-grid{ break-inside: auto !important; }
 
   /* The three ISO certificates must stay on one row, side by side. */
   .grid-3{ grid-template-columns: repeat(3, 1fr) !important; }
