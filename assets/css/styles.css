@@ -1332,7 +1332,13 @@ h1,h2,h3,h4{
     text-align:center;
     color:#fff;
   }
-  .pcx-logo{ height: 16mm; width:auto; margin: 0 auto 6mm; }
+  /* Centred over the middle (EMAIL) column. Measured: logo centre lands within
+     0.5pt of both the EMAIL label and the page centre, so no optical nudge —
+     an alpha-centroid correction was tried and pushed it 10pt off. */
+  .pcx-logo{
+    height: 19mm; width:auto; display:block;
+    margin-left:auto; margin-right:auto; margin-bottom: 7mm;
+  }
   .pcx-grid{
     display:grid; grid-template-columns: repeat(3,1fr); gap: 5mm;
     padding: 5mm 0; margin-bottom: 4mm;
