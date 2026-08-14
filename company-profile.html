@@ -111,14 +111,19 @@ document.getElementById('print-profile').addEventListener('click', function () {
   btn.textContent = 'Preparing\u2026';
   var waits = Array.prototype.slice.call(document.images).map(function (img) {
     img.loading = 'eager';
-    if (img.complete && img.naturalWidth) return Promise.resolve();
+    /* The lightbox img carries no src; it fires neither load nor error, so
+       waiting on it would hang here forever. Nothing to load = already done. */
+    if (!img.getAttribute('src')) return Promise.resolve();
+    if (img.complete) return Promise.resolve();
     return new Promise(function (res) {
       img.addEventListener('load', res, { once: true });
       img.addEventListener('error', res, { once: true });
     });
   });
   if (document.fonts && document.fonts.ready) waits.push(document.fonts.ready);
-  Promise.all(waits).then(function () {
+  /* Hard ceiling: a slow or stalled asset must never block the print dialog. */
+  var ceiling = new Promise(function (res) { setTimeout(res, 8000); });
+  Promise.race([Promise.all(waits), ceiling]).then(function () {
     btn.textContent = label;
     window.print();
   });
