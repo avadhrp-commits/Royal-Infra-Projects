@@ -591,6 +591,37 @@ h1,h2,h3,h4{
   color: rgba(255,255,255,0.72);
 }
 
+/* Fault-response callout — sits under the stat band on a navy section. */
+.fault-band{
+  display:grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+  align-items:center;
+  margin-top: clamp(1.6rem, 3vw, 2.2rem);
+  padding: clamp(1.3rem, 2.6vw, 1.9rem) clamp(1.4rem, 3vw, 2.1rem);
+  border: 1px solid rgba(228,185,79,0.42);
+  border-left: 3px solid var(--gold-bright);
+  border-radius: var(--radius);
+  background: rgba(228,185,79,0.07);
+}
+.fault-q{
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--gold-bright);
+}
+.fault-a p{ color: rgba(255,255,255,0.9); font-size: var(--step--1); line-height:1.6; }
+.fault-a strong{ color: var(--white); }
+.fault-note{
+  margin-top: 0.5rem;
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 0.82rem !important;
+}
+@media (max-width: 700px){
+  .fault-band{ grid-template-columns: 1fr; gap: 0.8rem; }
+}
+
 .pf-projects{ display:flex; flex-direction:column; gap: clamp(1.4rem, 3vw, 2.2rem); }
 .pf-project{
   display:grid;
@@ -1213,7 +1244,7 @@ h1,h2,h3,h4{
   }
   .pc-hero img{ width:100%; height:100%; object-fit:cover; }
   .pc-stats{
-    display:grid; grid-template-columns: repeat(4,1fr); gap: 4mm;
+    display:grid; grid-template-columns: repeat(3,1fr); gap: 4mm;
     margin-top: 8mm; padding-top: 6mm;
     border-top: 0.4mm solid rgba(255,255,255,0.28);
   }
@@ -1251,7 +1282,12 @@ h1,h2,h3,h4{
   p, li{ orphans: 3; widows: 3; }
 
   /* --- component break control --- */
-  .stat-band{ break-inside: avoid; }
+  .stat-band, .fault-band{ break-inside: avoid; }
+  /* Four tiles: 2x2 fills cleanly, where auto-fit left an orphan cell. */
+  .stat-band{ grid-template-columns: repeat(2, 1fr) !important; }
+  .fault-band{ padding: 6mm !important; margin-top: 6mm; }
+  .fault-q{ font-size: 12pt; }
+  .fault-a p{ font-size: 9pt; }
   .stat-tile{ background:#0E2148 !important; padding: 5mm !important; }
   .stat-num{ font-size: 15pt !important; color:#E4B94F !important; }
   .stat-tile p{ color: rgba(255,255,255,0.75) !important; font-size: 7.8pt !important; }
