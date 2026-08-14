@@ -64,8 +64,9 @@
   }],
   "founder": { "@type": "Person", "name": "Rajesh M. Patel", "jobTitle": "Managing Head" },
   "employee": [
-    { "@type": "Person", "name": "Avadh R. Patel", "jobTitle": "General Manager" },
-    { "@type": "Person", "name": "Harshal D. Patel", "jobTitle": "Operations Manager" }
+    { "@type": "Person", "name": "Avadh R. Patel", "jobTitle": "General Manager - Sales & Execution" },
+    { "@type": "Person", "name": "Harshal D. Patel", "jobTitle": "Operations Manager" },
+    { "@type": "Person", "name": "Sahil Patel", "jobTitle": "Regional Project Head" }
   ],
   "hasCredential": [
     { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "ISO 9001:2015 Quality Management System" },
@@ -101,7 +102,28 @@
 </header>
 <main id="main">
 
-<div class="print-bar"><button type="button" class="btn btn-outline-navy btn-sm" onclick="window.print()">Print / Save as PDF</button></div>
+<div class="print-bar"><button type="button" class="btn btn-outline-navy btn-sm" id="print-profile">Print / Save as PDF</button></div>
+<script>
+/* Decode every image and settle webfonts before opening the print dialog, so
+   nothing lands in the PDF as a blank box. */
+document.getElementById('print-profile').addEventListener('click', function () {
+  var btn = this, label = btn.textContent;
+  btn.textContent = 'Preparing\u2026';
+  var waits = Array.prototype.slice.call(document.images).map(function (img) {
+    img.loading = 'eager';
+    if (img.complete && img.naturalWidth) return Promise.resolve();
+    return new Promise(function (res) {
+      img.addEventListener('load', res, { once: true });
+      img.addEventListener('error', res, { once: true });
+    });
+  });
+  if (document.fonts && document.fonts.ready) waits.push(document.fonts.ready);
+  Promise.all(waits).then(function () {
+    btn.textContent = label;
+    window.print();
+  });
+});
+</script>
 
 <!-- Print-only cover. Hidden on screen; becomes page 1 of the PDF. -->
 <section class="print-cover" aria-hidden="true">
@@ -155,7 +177,7 @@
         <p style="color:var(--ink-soft); margin-top:0.9rem;">Growth has been matched by structure: procurement controls, inventory systems, measurement and billing discipline, and documented project management processes now govern execution across concurrent sites.</p>
       </div>
       <figure style="border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow);">
-        <img src="assets/img/cable-trench-2-800.jpg" srcset="assets/img/cable-trench-2-480.webp 480w, assets/img/cable-trench-2-800.webp 800w" sizes="(max-width:700px) 100vw, 45vw" alt="Structured underground duct bank with racked HT cable routing executed by Royal Infra Projects" loading="lazy" style="aspect-ratio:4/3; object-fit:cover;">
+        <img src="assets/img/cable-trench-2-800.jpg" srcset="assets/img/cable-trench-2-480.webp 480w, assets/img/cable-trench-2-800.webp 800w" sizes="(max-width:700px) 100vw, 45vw" alt="Structured underground duct bank with racked HT cable routing executed by Royal Infra Projects" loading="eager" style="aspect-ratio:4/3; object-fit:cover;">
       </figure>
     </div>
   </div>
@@ -232,7 +254,7 @@
     <div class="pf-projects">
       <article class="pf-project reveal">
       <figure class="pf-media">
-        <img src="assets/img/cable-trench-800.jpg" srcset="assets/img/cable-trench-480.webp 480w, assets/img/cable-trench-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Underground HT cable trench with ducts during the UGVCL Bopal RDSS conversion works" loading="lazy">
+        <img src="assets/img/cable-trench-800.jpg" srcset="assets/img/cable-trench-480.webp 480w, assets/img/cable-trench-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Underground HT cable trench with ducts during the UGVCL Bopal RDSS conversion works" loading="eager">
         <span class="pf-index">01</span>
       </figure>
       <div class="pf-body">
@@ -244,7 +266,7 @@
     </article>
       <article class="pf-project reveal">
       <figure class="pf-media">
-        <img src="assets/img/rmu-networking-800.jpg" srcset="assets/img/rmu-networking-480.webp 480w, assets/img/rmu-networking-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="RMU and DTR foundation construction during the UGVCL Sanand conversion programme" loading="lazy">
+        <img src="assets/img/rmu-networking-800.jpg" srcset="assets/img/rmu-networking-480.webp 480w, assets/img/rmu-networking-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="RMU and DTR foundation construction during the UGVCL Sanand conversion programme" loading="eager">
         <span class="pf-index">02</span>
       </figure>
       <div class="pf-body">
@@ -256,7 +278,7 @@
     </article>
       <article class="pf-project reveal">
       <figure class="pf-media">
-        <img src="assets/img/substation-commissioning-800.jpg" srcset="assets/img/substation-commissioning-480.webp 480w, assets/img/substation-commissioning-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Substation compound with transformer and control building on a GSRDC utility shifting corridor" loading="lazy">
+        <img src="assets/img/substation-commissioning-800.jpg" srcset="assets/img/substation-commissioning-480.webp 480w, assets/img/substation-commissioning-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Substation compound with transformer and control building on a GSRDC utility shifting corridor" loading="eager">
         <span class="pf-index">03</span>
       </figure>
       <div class="pf-body">
@@ -268,7 +290,7 @@
     </article>
       <article class="pf-project reveal">
       <figure class="pf-media">
-        <img src="assets/img/rmu-big-800.jpg" srcset="assets/img/rmu-big-480.webp 480w, assets/img/rmu-big-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Compact substation switchgear enclosure installed under RMU and DTR infrastructure works" loading="lazy">
+        <img src="assets/img/rmu-big-800.jpg" srcset="assets/img/rmu-big-480.webp 480w, assets/img/rmu-big-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Compact substation switchgear enclosure installed under RMU and DTR infrastructure works" loading="eager">
         <span class="pf-index">04</span>
       </figure>
       <div class="pf-body">
@@ -280,7 +302,7 @@
     </article>
       <article class="pf-project reveal">
       <figure class="pf-media">
-        <img src="assets/img/lt-panel-installation-800.jpg" srcset="assets/img/lt-panel-installation-480.webp 480w, assets/img/lt-panel-installation-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Crew commissioning an LT distribution panel during L&T-associated infrastructure works" loading="lazy">
+        <img src="assets/img/lt-panel-installation-800.jpg" srcset="assets/img/lt-panel-installation-480.webp 480w, assets/img/lt-panel-installation-800.webp 800w" sizes="(max-width:820px) 100vw, 40vw" alt="Crew commissioning an LT distribution panel during L&T-associated infrastructure works" loading="eager">
         <span class="pf-index">05</span>
       </figure>
       <div class="pf-body">
@@ -313,7 +335,7 @@
       </div>
       <div>
         <figure style="border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); margin-bottom:1.4rem;">
-          <img src="assets/img/ht-cable-open-trench-800.jpg" srcset="assets/img/ht-cable-open-trench-480.webp 480w, assets/img/ht-cable-open-trench-800.webp 800w" sizes="(max-width:700px) 100vw, 45vw" alt="Multi-core HT cables bedded in open trench prior to backfill and reinstatement" loading="lazy" style="aspect-ratio:16/10; object-fit:cover;">
+          <img src="assets/img/ht-cable-open-trench-800.jpg" srcset="assets/img/ht-cable-open-trench-480.webp 480w, assets/img/ht-cable-open-trench-800.webp 800w" sizes="(max-width:700px) 100vw, 45vw" alt="Multi-core HT cables bedded in open trench prior to backfill and reinstatement" loading="eager" style="aspect-ratio:16/10; object-fit:cover;">
         </figure>
         <ul class="tick-list">
           <li><strong>Material &amp; inventory control</strong> &mdash; issue, consumption and reconciliation tracked per site.</li>
@@ -348,7 +370,7 @@
   <div class="container">
     <div class="grid grid-2" style="align-items:center; gap:clamp(2rem,4vw,3.5rem);">
       <figure style="border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); order:2;">
-        <img src="assets/img/panels-800.jpg" srcset="assets/img/panels-480.webp 480w, assets/img/panels-800.webp 800w" sizes="(max-width:700px) 100vw, 45vw" alt="Substation control and relay panel line-up under Royal Infra Projects scope" loading="lazy" style="aspect-ratio:4/3; object-fit:cover;">
+        <img src="assets/img/panels-800.jpg" srcset="assets/img/panels-480.webp 480w, assets/img/panels-800.webp 800w" sizes="(max-width:700px) 100vw, 45vw" alt="Substation control and relay panel line-up under Royal Infra Projects scope" loading="eager" style="aspect-ratio:4/3; object-fit:cover;">
       </figure>
       <div>
         <span class="eyebrow">Scaling Capability</span>
@@ -376,9 +398,9 @@
       <p style="color:rgba(255,255,255,0.72);">Certified by Ranalysis Certification Pvt. Ltd. and applied across our full scope of work.</p>
     </div>
     <div class="grid grid-3" style="gap:1rem;">
-      <div class="cert-plate" data-lightbox="assets/img/iso-9001-1200.jpg" data-lightbox-alt="ISO 9001:2015 Quality Management System certificate issued to Royal Infra Projects"><img src="assets/img/iso-9001-400.jpg" alt="ISO 9001:2015 Quality Management System certificate" loading="lazy"></div>
-      <div class="cert-plate" data-lightbox="assets/img/iso-14001-1200.jpg" data-lightbox-alt="ISO 14001:2015 Environmental Management System certificate issued to Royal Infra Projects"><img src="assets/img/iso-14001-400.jpg" alt="ISO 14001:2015 Environmental Management System certificate" loading="lazy"></div>
-      <div class="cert-plate" data-lightbox="assets/img/iso-45001-1200.jpg" data-lightbox-alt="ISO 45001:2018 Occupational Health and Safety Management System certificate issued to Royal Infra Projects"><img src="assets/img/iso-45001-400.jpg" alt="ISO 45001:2018 Occupational Health and Safety Management System certificate" loading="lazy"></div>
+      <div class="cert-plate" data-lightbox="assets/img/iso-9001-1200.jpg" data-lightbox-alt="ISO 9001:2015 Quality Management System certificate issued to Royal Infra Projects"><img src="assets/img/iso-9001-400.jpg" alt="ISO 9001:2015 Quality Management System certificate" loading="eager"></div>
+      <div class="cert-plate" data-lightbox="assets/img/iso-14001-1200.jpg" data-lightbox-alt="ISO 14001:2015 Environmental Management System certificate issued to Royal Infra Projects"><img src="assets/img/iso-14001-400.jpg" alt="ISO 14001:2015 Environmental Management System certificate" loading="eager"></div>
+      <div class="cert-plate" data-lightbox="assets/img/iso-45001-1200.jpg" data-lightbox-alt="ISO 45001:2018 Occupational Health and Safety Management System certificate issued to Royal Infra Projects"><img src="assets/img/iso-45001-400.jpg" alt="ISO 45001:2018 Occupational Health and Safety Management System certificate" loading="eager"></div>
     </div>
     <div class="grid grid-3" style="gap:1rem; margin-top:1.2rem;">
       <div><p style="color:rgba(255,255,255,0.82); font-size:var(--step--1);"><strong style="color:var(--white);">ISO 9001:2015</strong><br>Quality Management<br><a href="assets/docs/iso-9001-2015-certificate.pdf" target="_blank" rel="noopener" style="color:var(--gold-bright); text-decoration:underline;">Download certificate (PDF)</a></p></div>
@@ -397,27 +419,35 @@
     </div>
     <div class="leader-grid">
       <article class="leader-card">
-        <div class="leader-photo"><img src="assets/img/rajesh-patel-375.jpg" srcset="assets/img/rajesh-patel-375.webp 375w, assets/img/rajesh-patel-600.webp 600w" sizes="170px" alt="Rajesh M. Patel, Managing Head, Royal Infra Projects" loading="lazy"></div>
+        <div class="leader-photo"><img src="assets/img/rajesh-patel-375.jpg" srcset="assets/img/rajesh-patel-375.webp 375w, assets/img/rajesh-patel-600.webp 600w" sizes="170px" alt="Rajesh M. Patel, Managing Head, Royal Infra Projects" loading="eager"></div>
         <div class="leader-body">
           <h3>Rajesh M. Patel</h3>
           <p class="leader-role">Managing Head</p>
-          <p>Strategic head of the organisation. Sets commercial direction, holds client and utility relationships, and owns the operating standards every project is measured against.</p>
+          <p>Cost control, overall project supervision, financial planning, accounting and taxation. Sets the commercial direction and the operating standards every project is measured against.</p>
         </div>
       </article>
       <article class="leader-card">
-        <div class="leader-photo"><img src="assets/img/avadh-patel-375.jpg" srcset="assets/img/avadh-patel-375.webp 375w, assets/img/avadh-patel-600.webp 600w" sizes="170px" alt="Avadh R. Patel, General Manager, Royal Infra Projects" loading="lazy"></div>
+        <div class="leader-photo"><img src="assets/img/avadh-patel-375.jpg" srcset="assets/img/avadh-patel-375.webp 375w, assets/img/avadh-patel-600.webp 600w" sizes="170px" alt="Avadh R. Patel, General Manager &mdash; Sales &amp; Execution, Royal Infra Projects" loading="eager"></div>
         <div class="leader-body">
           <h3>Avadh R. Patel</h3>
-          <p class="leader-role">General Manager &mdash; Administration &amp; Commercial</p>
-          <p>B.E. Mechanical Engineering; M.Tech Nuclear Science &amp; Technology. Project and commercial management, finance and accounts, procurement, billing, inventory systems, documentation, taxation, client and contractor coordination, project controls and business development.</p>
+          <p class="leader-role">General Manager &mdash; Sales &amp; Execution</p>
+          <p>B.E. Mechanical Engineering; M.Tech Nuclear Science &amp; Technology. Senior relationships with clients, authorities and contracting partners; monitoring of planned project execution and quality oversight across concurrent sites.</p>
         </div>
       </article>
       <article class="leader-card">
-        <div class="leader-photo"><div class="leader-initials" aria-hidden="true">HP</div></div>
+        <div class="leader-photo"><img src="assets/img/harshal-patel-375.jpg" srcset="assets/img/harshal-patel-375.webp 375w, assets/img/harshal-patel-600.webp 600w" sizes="170px" alt="Harshal D. Patel, Operations Manager, Royal Infra Projects" loading="eager"></div>
         <div class="leader-body">
           <h3>Harshal D. Patel</h3>
           <p class="leader-role">Operations Manager</p>
-          <p>B.E. Mechanical Engineering. Project execution, site operations, workforce coordination, contractor management, inventory monitoring, daily progress tracking and operational coordination.</p>
+          <p>B.E. Mechanical Engineering. Planning at scheme level, with monitoring and control alongside Sahil. Coordination with utilities, liaison departments and statutory authorities for permissions, plus day-to-day ground-level problem solving and work execution.</p>
+        </div>
+      </article>
+      <article class="leader-card">
+        <div class="leader-photo"><img src="assets/img/sahil-patel-375.jpg" srcset="assets/img/sahil-patel-375.webp 375w, assets/img/sahil-patel-600.webp 600w" sizes="170px" alt="Sahil Patel, Regional Project Head, Royal Infra Projects" loading="eager"></div>
+        <div class="leader-body">
+          <h3>Sahil Patel</h3>
+          <p class="leader-role">Regional Project Head</p>
+          <p>Ground-level monitoring and consulting across the region, guiding the workforce and ensuring execution matches the plan. Coordinates between senior management, the client and the relevant authorities.</p>
         </div>
       </article>
     </div>
@@ -469,10 +499,10 @@
     </div>
     <p style="color:var(--ink-soft); font-size:0.82rem; margin-top:1rem;">Royal Infra Projects executes directly and as a channel partner. Organisations listed above form the project ecosystem within which our work is delivered.</p>
     <div class="grid grid-4" style="gap:0.8rem; margin-top:1.6rem;">
-      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/rmu-panelling-480.webp" alt="RMU panel servicing on site" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></figure>
-      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/ht-substation-480.webp" alt="HT substation infrastructure" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></figure>
-      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/rmu-big-480.webp" alt="Compact substation switchgear enclosure" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></figure>
-      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/solar-grid-480.webp" alt="Solar generation integrated with transmission infrastructure" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></figure>
+      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/rmu-panelling-480.webp" alt="RMU panel servicing on site" loading="eager" style="width:100%;height:100%;object-fit:cover;"></figure>
+      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/ht-substation-480.webp" alt="HT substation infrastructure" loading="eager" style="width:100%;height:100%;object-fit:cover;"></figure>
+      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/rmu-big-480.webp" alt="Compact substation switchgear enclosure" loading="eager" style="width:100%;height:100%;object-fit:cover;"></figure>
+      <figure style="border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:4/3;"><img src="assets/img/solar-grid-480.webp" alt="Solar generation integrated with transmission infrastructure" loading="eager" style="width:100%;height:100%;object-fit:cover;"></figure>
     </div>
   </div>
 </section>
