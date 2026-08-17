@@ -10,7 +10,6 @@ Static site. No build step, no dependencies — every file here is served as-is.
 | `404.html` | Shown by GitHub Pages on a bad URL |
 | `assets/css`, `assets/js` | Stylesheet and behaviour |
 | `assets/img`, `assets/video` | Images, logos, certificates, hero loop |
-| `assets/docs` | ISO certificate PDFs |
 | `sitemap.xml`, `robots.txt` | Search engine crawling |
 | `CNAME` | Binds the custom domain www.royalinfraprojects.com |
 | `.nojekyll` | Tells GitHub Pages to serve files verbatim |
