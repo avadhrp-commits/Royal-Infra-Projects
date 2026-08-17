@@ -134,9 +134,12 @@ h1,h2,h3,h4{
 }
 .section{ padding-block: clamp(3.5rem, 7vw, 7rem); }
 .section-tight{ padding-block: clamp(2.5rem, 5vw, 4.5rem); }
-.section.on-navy{ background: var(--navy); color: rgba(255,255,255,0.86); }
-.section.on-navy h2, .section.on-navy h3{ color: var(--white); }
-.section.on-cloud{ background: var(--cloud); }
+/* Standalone selectors, not .section.on-navy — the company profile uses
+   .section-tight, which the compound form skipped entirely, leaving white text
+   on a white background across that whole page. */
+.on-navy{ background: var(--navy); color: rgba(255,255,255,0.86); }
+.on-navy h2, .on-navy h3, .on-navy h4{ color: var(--white); }
+.on-cloud{ background: var(--cloud); }
 
 .grid{ display:grid; gap: clamp(1.25rem, 2.5vw, 2rem); }
 .grid-2{ grid-template-columns: repeat(2, 1fr); }
