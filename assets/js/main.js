@@ -95,41 +95,83 @@
     });
   }
 
-  /* ---------- Contact form (Formspree-ready, graceful fallback) ---------- */
+  /* ---------- Enquiry form ----------
+     Delivery order:
+       1. Formspree, if a real endpoint is configured on the form.
+       2. WhatsApp deep link carrying the enquiry (works with no signup).
+       3. Email fallback link.
+     The form must never dead-end: a lead that cannot be delivered is a lead lost. */
   var form = document.querySelector("#contact-form");
   if (form) {
     var status = form.querySelector(".form-status");
+    var WA_NUMBER = form.getAttribute("data-whatsapp") || "917874940140";
+    var MAIL_TO = form.getAttribute("data-email") || "info@royalinfraprojects.com";
+
+    function fieldMap() {
+      var d = {}, fd = new FormData(form);
+      fd.forEach(function (v, k) { if (String(v).trim()) d[k] = String(v).trim(); });
+      return d;
+    }
+
+    function asText(d) {
+      /* Keys must match the form's real field names, or the raw attribute
+         name ends up in the message the client receives. */
+      var label = {
+        name: "Name", company: "Company", phone: "Phone", email: "Email",
+        subject: "Requirement", service: "Requirement", message: "Details"
+      };
+      return Object.keys(d).map(function (k) {
+        return (label[k] || k) + ": " + d[k];
+      }).join("\n");
+    }
+
+    function handoff(d) {
+      var body = "New enquiry from royalinfraprojects.com\n\n" + asText(d);
+      var wa = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(body);
+      var mail = "mailto:" + MAIL_TO +
+        "?subject=" + encodeURIComponent("Website enquiry" + (d.company ? " — " + d.company : "")) +
+        "&body=" + encodeURIComponent(body);
+      /* Open WhatsApp immediately with the enquiry composed. The buttons stay
+         on screen because a popup blocker can swallow window.open, and a lead
+         must never be left with nowhere to go. */
+      var win = window.open(wa, "_blank", "noopener");
+      var opened = !!win;
+      status.innerHTML =
+        (opened
+          ? 'Opening WhatsApp with your enquiry &mdash; press send there to reach us.'
+          : 'Your enquiry is ready &mdash; choose how to send it:') +
+        '<span class="form-handoff">' +
+        '<a class="btn btn-gold btn-sm" href="' + wa + '" target="_blank" rel="noopener">' +
+        (opened ? 'Reopen WhatsApp' : 'Send on WhatsApp') + '</a>' +
+        '<a class="btn btn-outline-navy btn-sm" href="' + mail + '">Send by Email</a>' +
+        '</span>' +
+        '<span class="form-alt">Or call <a href="tel:+917874940140">+91 78749 40140</a></span>';
+      status.className = "form-status show ok";
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var action = form.getAttribute("action") || "";
-      var placeholder = action.indexOf("YOUR_FORM_ID") !== -1;
-      if (placeholder) {
-        status.textContent =
-          "Form isn't connected yet — please email info@royalinfraprojects.com or call +91 78749 40140 directly. (Site owner: connect a Formspree endpoint in contact.html.)";
-        status.className = "form-status show err";
-        return;
-      }
-      var data = new FormData(form);
-      status.textContent = "Sending...";
+      var configured = action.indexOf("formspree.io") !== -1 &&
+                       action.indexOf("YOUR_FORM_ID") === -1;
+      var data = fieldMap();
+
+      if (!configured) { handoff(data); return; }
+
+      status.textContent = "Sending\u2026";
       status.className = "form-status show";
       fetch(action, {
         method: "POST",
-        body: data,
+        body: new FormData(form),
         headers: { Accept: "application/json" },
       })
         .then(function (res) {
-          if (res.ok) {
-            status.textContent = "Thank you — your enquiry has been sent. We'll get back to you shortly.";
-            status.className = "form-status show ok";
-            form.reset();
-          } else {
-            throw new Error("Submit failed");
-          }
+          if (!res.ok) throw new Error("submit failed");
+          status.textContent = "Thank you \u2014 your enquiry has been sent. We'll get back to you shortly.";
+          status.className = "form-status show ok";
+          form.reset();
         })
-        .catch(function () {
-          status.textContent = "Something went wrong. Please email info@royalinfraprojects.com or call +91 78749 40140.";
-          status.className = "form-status show err";
-        });
+        .catch(function () { handoff(data); });
     });
   }
 

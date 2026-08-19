@@ -1480,3 +1480,19 @@ h1,h2,h3,h4{
     letter-spacing: 0.08em; color: rgba(255,255,255,0.55);
   }
 }
+
+/* Enquiry handoff buttons shown after submit (WhatsApp / email). */
+.form-handoff{ display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:0.9rem; }
+.form-alt{ display:block; margin-top:0.7rem; font-size:var(--step--1); color:var(--ink-soft); }
+.form-alt a{ color:var(--steel); text-decoration:underline; }
+.form-status.ok .form-alt a{ color:inherit; }
+
+/* WhatsApp CTA button — brand green, readable on both navy and light bands. */
+.btn-wa{
+  background: #25D366;
+  color: #073B22;
+  font-weight: 600;
+  box-shadow: 0 10px 24px -10px rgba(37,211,102,0.55);
+}
+.btn-wa:hover{ background:#1EBE5A; color:#062E1B; transform: translateY(-2px); }
+@media print{ .btn-wa{ display:none !important; } }

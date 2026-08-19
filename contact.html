@@ -155,7 +155,11 @@
 
       <div class="card">
         <span class="eyebrow">Send an Enquiry</span>
-        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="margin-top:1.4rem;">
+        <!-- action is left blank until a Formspree endpoint is configured; the handler
+     then routes enquiries to WhatsApp/email so a lead is never dropped. -->
+        <form id="contact-form" action="" method="POST"
+              data-whatsapp="917874940140" data-email="info@royalinfraprojects.com"
+              style="margin-top:1.4rem;">
           <div class="form-field">
             <label for="name">Full name</label>
             <input type="text" id="name" name="name" required autocomplete="name">
