@@ -32,6 +32,15 @@
 
   /* ---------- Active nav link ---------- */
   var here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  // The specialty capability pages (HT transmission lines, substations &
+  // feeder bays, street lighting, industrial/smart energy, solar, energy
+  // audit) live outside the flat top nav, so on any of them "Services"
+  // should still light up as the active section.
+  var SERVICE_SUBPAGES = [
+    "ht-transmission-lines.html", "substations-feeder-bays.html", "street-lighting.html",
+    "industrial-electrification.html", "solar-renewable-energy.html", "energy-audit-services.html"
+  ];
+  if (SERVICE_SUBPAGES.indexOf(here) !== -1) here = "services.html";
   document.querySelectorAll(".nav-links a[data-page]").forEach(function (a) {
     if (a.dataset.page === here) a.classList.add("active");
   });
