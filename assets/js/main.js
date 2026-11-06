@@ -186,6 +186,36 @@
 
   /* ---------- FAQ Chatbot (rule-based, fully client-side) ---------- */
   var FAQ = [
+    // Specialty capabilities come first so they win over the generic
+    // "service" / "project" entries below.
+    {
+      q: ["transmission", "66kv", "33kv", "11kv", "voltage", "overhead line", "overhead lines", "tower", "towers"],
+      a: "We survey, erect and commission overhead HT transmission and distribution lines from 11kV through 33kV up to 66kV, including tower and pole foundations, conductor stringing and line testing before energisation. See <a href='ht-transmission-lines.html'>HT Transmission Lines</a>.",
+    },
+    {
+      q: ["feeder", "bay", "bays", "substation", "substations", "switchyard"],
+      a: "We execute substation civil works, switchgear erection, bay wiring and commissioning across the 11kV, 33kV and 66kV classes, from ring main unit and distribution transformer sites through to full substation compounds. See <a href='substations-feeder-bays.html'>Substations &amp; Feeder Bays</a>.",
+    },
+    {
+      q: ["street", "streetlight", "streetlights", "lighting", "led", "pole", "poles"],
+      a: "Yes. We install and retrofit LED street lighting including pole erection and foundations, feeder pillar and panel wiring, underground or overhead lighting circuits, and photocell or timer-based controls for municipal, PWD and infrastructure development projects. See <a href='street-lighting.html'>Street Lighting</a>.",
+    },
+    {
+      q: ["solar", "renewable", "rooftop", "net metering", "net-metering", "inverter"],
+      a: "Yes. We deliver the electrical works behind a solar installation &mdash; balance-of-system, grid interconnection, metering and HT evacuation &mdash; and coordinate with the distribution licensee for net or gross metering approval and synchronisation. See <a href='solar-renewable-energy.html'>Solar &amp; Renewable Energy</a>.",
+    },
+    {
+      q: ["industrial", "factory", "power factor", "electricity bill", "energy management", "smart energy", "mcc", "pcc", "apfc"],
+      a: "Industrial electrification covers everything from the HT metering point through internal LT distribution &mdash; MCC and PCC panels, transformer and DG synchronisation, cable and busbar routing, protection and earthing &mdash; with power factor correction, load management and monitoring that keep the cost of electricity under control. See <a href='industrial-electrification.html'>Industrial &amp; Smart Energy</a>.",
+    },
+    {
+      q: ["audit", "efficiency", "municipal", "municipality", "municipalities", "government", "rdss", "bee"],
+      a: "Yes. We offer electrical energy audit and efficiency solutions for municipalities, government bodies and industry &mdash; assessing lighting, motor, transformer and feeder losses &mdash; and can also execute the upgrade work the audit identifies. See <a href='energy-audit-services.html'>Energy Audit Services</a>.",
+    },
+    {
+      q: ["cities", "city", "areas", "serve", "operate"],
+      a: "We're based in Sanand, Ahmedabad and operate across Gujarat, including Ahmedabad, Sanand, Gandhinagar and surrounding districts, for utility, industrial and commercial clients.",
+    },
     {
       q: ["service", "services", "what do you do", "what do you offer"],
       a: "We deliver 14 service lines across four groups: Network & Conversion (HT/LT networks, OH-to-UG conversion, RMU/DTR infrastructure), Installation & Commissioning (HDD, substation commissioning, cable jointing, earthing), Testing & Efficiency (diagnostics, AMC, solar grid integration, power factor automation), and Utility & Civil Support. See the full list on our <a href='services.html'>Services page</a>.",
@@ -195,7 +225,7 @@
       a: "Yes. Our management systems are independently certified by Ranalysis Certification Pvt. Ltd. (IAF / EGAC accredited) &mdash; ISO 9001:2015 for quality, ISO 14001:2015 for environmental management and ISO 45001:2018 for occupational health &amp; safety. The certificates are shown on our <a href='index.html#certificates'>home page</a> &mdash; click any one to view it full size.",
     },
     {
-      q: ["quote", "quotation", "cost", "price", "pricing", "estimate", "enquiry", "enquire"],
+      q: ["quote", "quotation", "cost", "costs", "price", "pricing", "estimate", "enquiry", "enquire"],
       a: "For a project quote, share your scope (location, voltage class, scale) via our <a href='contact.html'>Contact page</a> or WhatsApp us directly at +91 78749 40140 — our commercial team typically responds within a business day.",
     },
     {
@@ -203,7 +233,7 @@
       a: "Reach us at +91 78749 40140 or info@royalinfraprojects.com. Our office is in Sanand, Ahmedabad, Gujarat. Full details and a map are on the <a href='contact.html'>Contact page</a>.",
     },
     {
-      q: ["career", "job", "vacancy", "hiring", "work with you", "apply"],
+      q: ["career", "job", "jobs", "vacancy", "hiring", "work with you", "apply"],
       a: "We're actively hiring across electrical, civil and project-management roles. Check open positions and how to apply on our <a href='careers.html'>Careers page</a>.",
     },
     {
@@ -211,7 +241,7 @@
       a: "We work with utilities including UGVCL and GSRDC, and alongside channel partners such as L&T Infrastructure and Rajesh Power Services. More on our <a href='partners.html'>Partners page</a>.",
     },
     {
-      q: ["project", "portfolio", "work", "case study", "rmu", "substation", "cable"],
+      q: ["project", "portfolio", "work", "works", "case study", "rmu", "cable"],
       a: "Our project work spans OH-to-UG conversions, RMU/DTR foundation execution, substation commissioning and solar grid integration across Gujarat. See real project photos on our <a href='projects.html'>Projects page</a>.",
     },
     {
@@ -227,11 +257,20 @@
   var FALLBACK =
     "I don't have a direct answer for that yet — for anything specific, please call +91 78749 40140, email info@royalinfraprojects.com, or use the WhatsApp button for a quick reply from our team.";
 
+  function escapeRe(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  // Keywords must start at a word boundary, and short ones (<= 4 chars) must be
+  // whole words. Plain substring matching made "hi" fire inside "which"/"this",
+  // and "iso" inside "isolator", returning the greeting / certification answer.
   function matchFaq(text) {
     var t = text.toLowerCase();
     for (var i = 0; i < FAQ.length; i++) {
       for (var j = 0; j < FAQ[i].q.length; j++) {
-        if (t.indexOf(FAQ[i].q[j]) !== -1) return FAQ[i].a;
+        var k = FAQ[i].q[j];
+        var re = new RegExp("(^|[^a-z0-9])" + escapeRe(k) + (k.length <= 4 ? "($|[^a-z0-9])" : ""));
+        if (re.test(t)) return FAQ[i].a;
       }
     }
     return null;
