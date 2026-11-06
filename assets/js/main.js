@@ -188,16 +188,18 @@
   var FAQ = [
     // Specialty capabilities come first so they win over the generic
     // "service" / "project" entries below.
-    {
-      q: ["transmission", "66kv", "33kv", "11kv", "voltage", "overhead line", "overhead lines", "tower", "towers"],
-      a: "We survey, erect and commission overhead HT transmission and distribution lines from 11kV through 33kV up to 66kV, including tower and pole foundations, conductor stringing and line testing before energisation. See <a href='ht-transmission-lines.html'>HT Transmission Lines</a>.",
-    },
+    // Substations before transmission: "66kV substation" must not be caught
+    // by the generic voltage keywords on the transmission entry.
     {
       q: ["feeder", "bay", "bays", "substation", "substations", "switchyard"],
       a: "We execute substation civil works, switchgear erection, bay wiring and commissioning across the 11kV, 33kV and 66kV classes, from ring main unit and distribution transformer sites through to full substation compounds. See <a href='substations-feeder-bays.html'>Substations &amp; Feeder Bays</a>.",
     },
     {
-      q: ["street", "streetlight", "streetlights", "lighting", "led", "pole", "poles"],
+      q: ["transmission", "66kv", "33kv", "11kv", "voltage", "overhead line", "overhead lines", "tower", "towers"],
+      a: "We survey, erect and commission overhead HT transmission and distribution lines from 11kV through 33kV up to 66kV, including tower and pole foundations, conductor stringing and line testing before energisation. See <a href='ht-transmission-lines.html'>HT Transmission Lines</a>.",
+    },
+    {
+      q: ["street", "streetlight", "streetlights", "lighting", "pole", "poles"],
       a: "Yes. We install and retrofit LED street lighting including pole erection and foundations, feeder pillar and panel wiring, underground or overhead lighting circuits, and photocell or timer-based controls for municipal, PWD and infrastructure development projects. See <a href='street-lighting.html'>Street Lighting</a>.",
     },
     {
@@ -209,12 +211,8 @@
       a: "Industrial electrification covers everything from the HT metering point through internal LT distribution &mdash; MCC and PCC panels, transformer and DG synchronisation, cable and busbar routing, protection and earthing &mdash; with power factor correction, load management and monitoring that keep the cost of electricity under control. See <a href='industrial-electrification.html'>Industrial &amp; Smart Energy</a>.",
     },
     {
-      q: ["audit", "efficiency", "municipal", "municipality", "municipalities", "government", "rdss", "bee"],
+      q: ["audit", "efficiency", "municipal", "municipality", "municipalities", "rdss", "bee"],
       a: "Yes. We offer electrical energy audit and efficiency solutions for municipalities, government bodies and industry &mdash; assessing lighting, motor, transformer and feeder losses &mdash; and can also execute the upgrade work the audit identifies. See <a href='energy-audit-services.html'>Energy Audit Services</a>.",
-    },
-    {
-      q: ["cities", "city", "areas", "serve", "operate"],
-      a: "We're based in Sanand, Ahmedabad and operate across Gujarat, including Ahmedabad, Sanand, Gandhinagar and surrounding districts, for utility, industrial and commercial clients.",
     },
     {
       q: ["service", "services", "what do you do", "what do you offer"],
@@ -239,6 +237,11 @@
     {
       q: ["client", "partner", "getco", "ugvcl", "gsrdc", "l&t", "l and t"],
       a: "We work with utilities including UGVCL and GSRDC, and alongside channel partners such as L&T Infrastructure and Rajesh Power Services. More on our <a href='partners.html'>Partners page</a>.",
+    },
+    // After clients so "which clients do you serve?" reaches the clients answer.
+    {
+      q: ["cities", "city", "which areas", "do you serve", "where do you operate", "where do you work"],
+      a: "We're based in Sanand, Ahmedabad and operate across Gujarat, including Ahmedabad, Sanand, Gandhinagar and surrounding districts, for utility, industrial and commercial clients.",
     },
     {
       q: ["project", "portfolio", "work", "works", "case study", "rmu", "cable"],
