@@ -429,7 +429,7 @@ h1,h2,h3,h4{
 }
 .momentum-item:last-child{ border-right:none; }
 .momentum-item .mk{ font-family:var(--font-mono); color:var(--gold-bright); font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; }
-.momentum-item h3{ color:var(--white); font-size: var(--step-1); margin-top:0.6rem; font-weight:500; }
+.momentum-item h2{ color:var(--white); font-size: var(--step-1); margin-top:0.6rem; font-weight:500; }
 .momentum-item p{ color: rgba(255,255,255,0.65); font-size: var(--step--1); margin-top:0.5rem; }
 @media (max-width: 900px){
   .momentum-rail{ flex-wrap:wrap; }
@@ -787,7 +787,7 @@ h1,h2,h3,h4{
   letter-spacing: 0.14em;
   color: var(--gold);
 }
-.pf-step h4{ font-size: var(--step-0); color: var(--navy); margin-top: 0.5rem; }
+.pf-step h3{ font-size: var(--step-0); color: var(--navy); margin-top: 0.5rem; }
 .pf-step p{ font-size: var(--step--1); color: var(--ink-soft); line-height:1.55; margin-top: 0.45rem; }
 
 /* ==========================================================================
@@ -1090,7 +1090,7 @@ h1,h2,h3,h4{
 @media (max-width: 560px){ .footer-grid{ grid-template-columns: 1fr; } }
 .footer-brand img{ height:44px; width:auto; display:block; margin-bottom:1.2rem; }
 .footer-brand p{ max-width:34ch; font-size: var(--step--1); }
-.footer-col h4{ color:var(--white); font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.1rem; }
+.footer-col h3{ color:var(--white); font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.1rem; }
 .footer-col ul{ display:flex; flex-direction:column; gap:0.7rem; }
 .footer-col a{ font-size: var(--step--1); transition: color .3s ease; }
 .footer-col a:hover{ color: var(--gold-bright); }
@@ -1256,7 +1256,7 @@ h1,h2,h3,h4{
 .mini-service{ border:1px solid var(--line); border-radius:var(--radius-sm); padding:1.1rem; display:flex; gap:0.7rem; align-items:flex-start; min-width:0; }
 .mini-service .icon-box{ width:36px; height:36px; margin-bottom:0; }
 .mini-service .icon-box svg{ width:18px; height:18px; }
-.mini-service h4{ font-size:0.92rem; color:var(--navy); font-weight:600; min-width:0; overflow-wrap:break-word; }
+.mini-service h3{ font-size:0.92rem; color:var(--navy); font-weight:600; min-width:0; overflow-wrap:break-word; }
 .print-bar{ display:flex; justify-content:flex-end; padding:0.9rem var(--gutter); background:var(--cloud); border-bottom:1px solid var(--line); }
 
 /* ==========================================================================
