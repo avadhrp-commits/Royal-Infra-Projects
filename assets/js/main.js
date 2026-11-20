@@ -38,7 +38,8 @@
   // should still light up as the active section.
   var SERVICE_SUBPAGES = [
     "ht-transmission-lines.html", "substations-feeder-bays.html", "street-lighting.html",
-    "industrial-electrification.html", "solar-renewable-energy.html", "energy-audit-services.html"
+    "industrial-electrification.html", "solar-renewable-energy.html", "energy-audit-services.html",
+    "cbg-plant-scada.html"
   ];
   if (SERVICE_SUBPAGES.indexOf(here) !== -1) here = "services.html";
   document.querySelectorAll(".nav-links a[data-page]").forEach(function (a) {
@@ -188,6 +189,10 @@
   var FAQ = [
     // Specialty capabilities come first so they win over the generic
     // "service" / "project" entries below.
+    {
+      q: ["scada", "cbg", "biogas", "bio gas", "bio-gas"],
+      a: "Yes. We deliver the electrical power systems and SCADA monitoring that help compressed biogas plants hold steady, high-efficiency output &mdash; live power and process visibility, alarms, trending and energy monitoring. See <a href='cbg-plant-scada.html'>SCADA for CBG Plants</a>.",
+    },
     // Substations before transmission: "66kV substation" must not be caught
     // by the generic voltage keywords on the transmission entry.
     {
@@ -331,9 +336,19 @@
       step();
     }
 
+    // Pages in a subfolder (the /2024/08/ articles) load assets through "../../".
+    // Chat answers carry site-relative links, so they need the same prefix there.
+    var ROOT = (function () {
+      var l = document.querySelector('link[rel="stylesheet"][href$="assets/css/styles.css"]');
+      return l ? l.getAttribute("href").replace("assets/css/styles.css", "") : "";
+    })();
+    function rootLinks(html) {
+      return ROOT ? html.replace(/href='(?![a-z]+:|#|\/)([^']+)'/gi, "href='" + ROOT + "$1'") : html;
+    }
+
     function respond(text) {
       addMsg(text, "user");
-      var answer = matchFaq(text) || FALLBACK;
+      var answer = rootLinks(matchFaq(text) || FALLBACK);
       var typingEl = addTyping();
       window.setTimeout(function () {
         typingEl.remove();

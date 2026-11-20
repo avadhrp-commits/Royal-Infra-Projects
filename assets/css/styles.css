@@ -1496,3 +1496,41 @@ h1,h2,h3,h4{
 }
 .btn-wa:hover{ background:#1EBE5A; color:#062E1B; transform: translateY(-2px); }
 @media print{ .btn-wa{ display:none !important; } }
+
+/* ==========================================================================
+   Technical insights — long-form article layout
+   ========================================================================== */
+.article{ max-width: 72ch; margin-inline: auto; }
+.article-meta{ font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); }
+.article h2{ font-size: var(--step-2); margin-top: 2.8rem; }
+.article h3{ font-size: var(--step-1); margin-top: 2rem; }
+.article p{ color: var(--ink-soft); margin-top: 1.1rem; line-height: 1.75; }
+.article ul, .article ol{ margin-top: 1.1rem; padding-left: 1.4rem; color: var(--ink-soft); line-height: 1.7; }
+.article ul{ list-style: disc; }
+.article ol{ list-style: decimal; }
+.article li{ margin-top: 0.7rem; padding-left: 0.2rem; }
+.article li::marker{ color: var(--gold-dim); }
+.article strong{ color: var(--navy); font-weight: 600; }
+.article a{ color: var(--steel); text-decoration: underline; text-underline-offset: 3px; }
+.article figure{ margin: 2.2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); background: var(--white); }
+.article figure img{ width: 100%; height: auto; }
+.article figcaption{ padding: 0.8rem 1.1rem; font-size: var(--step--1); color: var(--ink-soft); line-height: 1.5; }
+.fig-pair{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2.2rem 0; }
+.fig-pair figure{ margin: 0; }
+@media (max-width: 560px){ .fig-pair{ grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Project media — "Representative image" label, and centred last card when a
+   specialty grid ends on a single item (7 capability cards = 3 + 3 + 1).
+   ========================================================================== */
+.pr-media{ position: relative; }
+.pr-caption{
+  position: absolute; left: 0.8rem; bottom: 0.8rem;
+  padding: 0.28rem 0.7rem; border-radius: 999px;
+  background: rgba(8,21,48,0.72); color: rgba(255,255,255,0.9);
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.spec-grid{ display: grid; }
+@media (min-width: 821px){
+  .spec-grid > :last-child:nth-child(3n + 1){ grid-column: 2; }
+}
