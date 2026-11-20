@@ -241,7 +241,7 @@
     },
     {
       q: ["client", "partner", "getco", "ugvcl", "gsrdc", "l&t", "l and t"],
-      a: "We work with utilities including UGVCL and GSRDC, and alongside channel partners such as L&T Infrastructure and Rajesh Power Services. More on our <a href='partners.html'>Partners page</a>.",
+      a: "We work with utilities including UGVCL, GETCO and GSRDC, and alongside channel partners such as L&T Infrastructure and Rajesh Power Services. More on our <a href='partners.html'>Partners page</a>.",
     },
     // After clients so "which clients do you serve?" reaches the clients answer.
     {
